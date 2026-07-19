@@ -6,7 +6,14 @@ app = FastAPI(title="CareerPilot AI API", version="1.0.0")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:3001", "https://careerpilot-project.vercel.app"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://localhost:3001",
+        "https://careerpilot-project.vercel.app",
+        "https://careerpilotfrontend.vercel.app",
+        "https://careerpilot-frontend.vercel.app",
+    ],
+    allow_origin_regex=r"https://.*\.vercel\.app",  # Allows all Vercel preview deployments
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
